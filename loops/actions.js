@@ -73,8 +73,8 @@ function Actions() {
             curAction.ticks = 0;
             curAction.loopsLeft--;
 
+            curAction.lastMana = curAction.manaUsed;
             this.completedTicks += curAction.adjustedTicks;
-            curAction.lastMana = curAction.adjustedTicks;
             curAction.finish();
             curAction.manaRemaining = timeNeeded - timer;
             
