@@ -73,7 +73,8 @@ function Actions() {
             curAction.ticks = 0;
             curAction.loopsLeft--;
 
-            curAction.lastMana = curAction.manaUsed;
+            curAction.lastStarted = curAction.lastCompleted;
+            curAction.lastCompleted = curAction.manaUsed;
             this.completedTicks += curAction.adjustedTicks;
             curAction.finish();
             curAction.manaRemaining = timeNeeded - timer;
@@ -166,7 +167,8 @@ function Actions() {
                 action.loopsLeft = action.loops;
                 action.ticks = 0;
                 action.manaUsed = 0;
-                action.lastMana = 0;
+                action.lastCompleted = 0;
+                action.lastStarted = 0;
                 action.manaRemaining = 0;
                 action.goldRemaining = 0;
                 action.timeSpent = 0;
@@ -185,7 +187,8 @@ function Actions() {
                 toAdd.loopsLeft = action.loops;
                 toAdd.ticks = 0;
                 toAdd.manaUsed = 0;
-                toAdd.lastMana = 0;
+                toAdd.lastCompleted = 0;
+                toAdd.lastStarted = 0;
                 toAdd.manaRemaining = 0;
                 toAdd.goldRemaining = 0;
                 toAdd.timeSpent = 0;
