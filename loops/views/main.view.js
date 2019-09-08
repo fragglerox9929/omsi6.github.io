@@ -406,7 +406,7 @@ function View() {
         if (curActionShowing === index) {
             document.getElementById(`action${index}ManaOrig`).textContent = formatNumber(action.manaCost() * action.loops);
             document.getElementById(`action${index}ManaUsed`).textContent = formatNumber(action.manaUsed);
-            document.getElementById(`action${index}LastMana`).textContent = nFormatter(action.lastCompleted - action.lastStarted, 2);
+            document.getElementById(`action${index}LastMana`).textContent = formatNumber(action.lastCompleted - action.lastStarted);
             document.getElementById(`action${index}Remaining`).textContent = formatNumber(action.manaRemaining);
             document.getElementById(`action${index}GoldRemaining`).textContent = formatNumber(action.goldRemaining);
             document.getElementById(`action${index}TimeSpent`).textContent = formatTime(action.timeSpent);
