@@ -70,11 +70,11 @@ function Actions() {
             view.requestUpdate("updateMultiPartSegments", curAction);
         }
         if (curAction.ticks >= curAction.adjustedTicks) {
-            curAction.lastMana = curAction.manaUsed - 1;
             curAction.ticks = 0;
             curAction.loopsLeft--;
 
             this.completedTicks += curAction.adjustedTicks;
+            curAction.lastMana = curAction.adjustedTicks;
             curAction.finish();
             curAction.manaRemaining = timeNeeded - timer;
             
