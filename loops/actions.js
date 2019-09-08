@@ -74,7 +74,7 @@ function Actions() {
             curAction.loopsLeft--;
 
             curAction.lastStarted = curAction.lastCompleted;
-            curAction.lastCompleted = curAction.adjustedTicks;
+            curAction.lastCompleted = curAction.rawTicks;
             this.completedTicks += curAction.adjustedTicks;
             curAction.finish();
             curAction.manaRemaining = timeNeeded - timer;
@@ -249,7 +249,8 @@ function setAdjustedTicks(action) {
             newCost += action.stats[statName] / (1 + getLevel(statName) / 100);
         }
     }
-    action.adjustedTicks = Math.ceil(action.manaCost() * newCost - 0.000001);
+    action.rawTicks = action.manaCost() * newCost;
+    action.adjustedTicks = Math.ceil(action.rawTicks - 0.000001);
 }
 
 function calcSoulstoneMult(soulstones) {
