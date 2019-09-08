@@ -74,7 +74,7 @@ function Actions() {
             curAction.loopsLeft--;
 
             curAction.lastStarted = curAction.lastCompleted;
-            curAction.lastCompleted = curAction.manaUsed;
+            curAction.lastCompleted = curAction.adjustedTicks;
             this.completedTicks += curAction.adjustedTicks;
             curAction.finish();
             curAction.manaRemaining = timeNeeded - timer;
